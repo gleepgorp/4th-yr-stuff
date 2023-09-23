@@ -1,0 +1,57 @@
+*sensors - movement detection
+*connectivity - connection
+*data procesing - 
+*actuators - responsible for physical movement in objects
+
+--iot applications--
+*smart homes - homes connected to the internet, IOT home
+*healthcare - remote patient monitoring
+*agriculture - precision farming 
+*transportation - connected vehicles
+*industrial IOT - optimizing operations, supply chain monitoring 
+
+--Benefits of IOT--
+*efficiency
+*improved decision making
+*enhanced safety and security
+*convenience and comfort
+
+--challenges and concerns--
+*security
+*privacy
+*interoperability
+*scalability
+
+
+
+Introduction to Arduino
+*Arduino - open-source electronic platform based on easy to use hardware and software
+
+--Components of Arduino--
+*Microcontroller - brain of arduino, process data, interact with hardware
+*Input components - sensors, buttons, etc provide data to MC
+*Output components - LEDs, motors, displays, receive signal from MC
+
+--Input Components--
+*light dependent resistor
+*push btn
+*temp sensor
+*fingerprint sensor
+*smoke sensor
+*keypad
+*sound detection sensor
+
+--Output Components--
+*LED
+*Motors
+*LCD
+*Seven segment display
+*speaker / buzzer
+
+--Benefits of Arduino--
+*accessibility - ez to learn
+*affordability - boards and components inexpensive
+*vast community - large community for support
+*versatility - suitable for wide range prjcts
+
+
