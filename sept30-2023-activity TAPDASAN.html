@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Programming Activity</title>
+    <style>
+      body{
+        margin: 2.5em;
+      }
+      hr{
+        height: 1px;
+        border: 0;
+        border-top: 1px solid rgb(224, 224, 224);
+      }
+      .questions{
+        margin-bottom: 1em;
+      }
+      p, 
+      .ao,
+      .lo,
+      .co,
+      .header{
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: Roboto, Arial;
+      }
+      .ao,
+      .co,
+      .lo{
+          margin-block: 0.3em;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      .activity-1,
+      .activity-2,
+      .activity-3,
+      .activity-4{
+        margin-bottom: 4em;
+      }
+      .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        white-space: nowrap;
+        margin-bottom: 2em;
+        font-weight: bold;
+      }
+      .h2{
+        color: rgb(179, 179, 179);
+      }
+      .to-calculate,
+      .calculate-button{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .calculate-button button{
+        padding-inline: 2em;
+        padding-block: 1em;
+        border-radius: 4px;
+        border: none;
+        background-color: rgb(59, 129, 233);
+        color: white;
+        font-weight: bold;
+        font-size: 0.8em;
+        margin-bottom: 1.5em;
+        transition: background-color 0.15s;
+      }
+      .calculate-button button:hover{
+        background-color: rgb(25, 96, 201);
+      }
+      .label-result{
+        font-size: .8em;
+      }
+      .result-cont{
+        margin-bottom: 1em;
+        background-color: rgb(231, 231, 231);
+        border-radius: 4px;
+        padding-inline: 1em;
+        padding-block: .8em;
+      }
+      .operator-cont{
+        margin-block: 1em;
+      }
+      .result-label{
+        font-weight: bold;
+      }
+      .result-answer{
+        font-weight: normal;
+      }
+      .txtbox-cont1,
+      .result-cont1{
+        font-family: Arial;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .result-cont1{
+        margin-block: 1em;
+        padding-block: 1em;
+        padding-inline: 1em;
+        border-radius: 6px;
+        background-color: rgb(231, 231, 231);
+      }
+      .results-span{
+        font-weight: 500;
+      }
+      .txtbox{
+        font-size: 1em;
+        margin-block: 1em;
+        padding-inline: 1em;
+        padding-block: 0.5em;
+        border: none;
+        background-color: rgb(240, 240, 240);
+        border-radius: 4px;
+        transition: box-shadow 0.15s;
+      }
+      .txtbox:hover{
+        box-shadow: inset 0 0 0 2px rgb(59, 129, 233);
+      }
+      .txtbox:focus{
+        outline: 1px ridge rgb(59, 129, 233);;
+      }
+      .txtbox::placeholder{
+        color: rgb(161, 161, 161);
+      }
+      .check-button{
+        border: none;
+        font-size: 1em;
+        padding-block: 1em;
+        padding-inline: 2em;
+        border-radius: 6px;
+        font-weight: bold;
+        color: white;
+        background-color: rgb(59, 129, 233);
+        transition: background-color 0.15s;
+      }
+      .check-button:hover{
+        background-color: rgb(25, 96, 201);
+      }
+      @media (min-width: 360px){
+        .header p{
+          font-size: 1.3em;
+        }
+        body{
+          font-size: 1em;
+        }
+        .ao,
+        .co,
+        .lo{
+          font-size: 0.9em;
+          white-space: nowrap;
+        }
+      }
+      @media (min-width: 725px){
+        .header p{
+          font-size: 1.3em;
+        }
+        body{
+          font-size: 1.5em;
+          margin: 4em;
+        }
+        .calculate-button button{
+          font-size: 1em;
+          border-radius: 10px;
+        }
+        .txtbox{
+          padding-inline: 2em;
+          padding-block: 1em;
+          border-radius: 10px;
+        }
+        .check-button{
+          border-radius: 10px;
+        }
+        .result-cont1,
+        .result-cont{
+          margin-inline: 2em;
+        }
+        .q1section1-cont{
+          border: 1px solid rgb(189, 189, 189);
+          border-radius: 14px;
+          padding-inline: 2em;
+          padding-block: 1em;
+        }
+        .q1section2-cont{
+          border: 1px solid rgb(189, 189, 189);
+          border-radius: 14px;
+          padding-inline: 2em;
+          padding-block: 1em;
+          margin-top: -1px;
+        }
+        .q2-main-cont{
+          border: solid 1px rgb(189, 189, 189);
+          border-radius: 14px;
+        }
+      }
+      @media (min-width: 1200px){
+        body{
+          margin-inline: 6em;
+        }
+        .q1section1-cont{
+          border: 1px solid rgb(189, 189, 189);
+          border-radius: 14px;
+          padding-inline: 4em;
+          padding-block: 2em;
+        }
+        .q1section2-cont{
+          border: 1px solid rgb(189, 189, 189);
+          border-radius: 14px;
+          padding-inline: 4em;
+          padding-block: 2em;
+          margin-top: -1px;
+        }
+        .q2-main-cont{
+          border: solid 1px rgb(189, 189, 189);
+          border-radius: 14px;
+        }
+      }
+      @media (min-width: 1400px){
+        body{
+          margin-inline: 6em;
+        }
+        .q1section1-cont{
+          display: flex;
+          flex-direction: column;
+          max-width: 30%;
+          border: 1px solid rgb(189, 189, 189);
+          border-radius: 14px;
+          padding-inline: 4em;
+          padding-block: 2em;
+        }
+        .q1section2-cont{
+          display: flex;
+          flex-direction: column;
+          border: 1px solid rgb(189, 189, 189);
+          border-radius: 14px;
+          padding-inline: 1em;
+          padding-block: 2.5em;
+          margin-left: -1px;
+        }
+        .result-cont{
+          margin-top: 1em;
+          border-radius: 10px;
+        }
+        .q1-main-section{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+        .txtbox-cont1{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-inline: 6em;
+        }
+        .result-cont1{
+          margin-inline: 6em;
+        }
+        .q2-main-cont{
+          border: solid 1px rgb(189, 189, 189);
+          border-radius: 14px;
+        }
+      }
+      @media (min-width: 1800px){
+        body{
+          margin-inline: 12em;
+        }
+      }
+
+    </style>
+
+  </head>
+<body>
+  <div class="header">
+    <p>Programming Activity</p>
+    <p class="h2">September 30, 2023</p>
+    <h3>Vince Regle R. Tapdasan IT-ELEC1</h3>
+  </div>
+  <div class="activity-1">
+      <p class="questions" >1.) Write a Javascript program that uses the following operators: </p>
+      <div class="q1-main-section">
+        <div class="q1section1-cont">
+          <div class="to-calculate">
+            <div class="number-cont">
+              <p class="num1">Num 1: 10</p>
+              <p class="num2">Num 2: 8</p>
+            </div>
+          </div>
+    
+          <div class="operator-cont">
+            <div class="ao">Arithmetic Operators
+              <div class="symbols">(+,-,*,/,%)</div>
+            </div>
+    
+            <div class="co">Comparison Operators
+              <div class="symbols">(==, !=, <, >, <=, >=)</div>
+            </div>
+    
+            <div class="lo">Logical Operators 
+              <div class="">(&&, ||, !)</div>
+            </div>
+          </div>
+          
+          <div class="calculate-button">
+            <button onclick="calculateActivity1()">
+              Calculate
+            </button>
+          </div>
+        </div>
+        <div class="q1section2-cont">
+          <div class="result-cont">
+            <p class="label-result">Arithmetic Operators</p>
+            <p class="result-label">Result: <span class="result-answer" id="arithmetic-result"></span></p>
+          </div>
+          <div class="result-cont">
+            <p class="label-result">Comparison Operators</p>
+            <p class="result-label">Result: <span class="result-answer"  id="comparison-result"></span></p>
+          </div>
+          <div class="result-cont">
+            <p class="label-result">Logical Operators</p>
+            <p class="result-label">Result: <span class="result-answer"  id="logical-result"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <script>
+    function calculateActivity1(){
+      let num1 = 10;
+      let num2 = 8;
+
+      //sum
+      let sum = num1 + num2;
+      //subtract
+      let subtract = num1 - num2;
+      //multiply
+      let multiply = num1 * num2;
+      //divide
+      let divide = num1 / num2;
+      //modulo
+      let modulo = num1 % num2;
+
+      let resultString = "Sum: " + sum + ", ";
+        resultString += "Difference: " + subtract + ", ";
+        resultString += "Product: " + multiply + ", ";
+        resultString += "Quotient: " + divide + ", ";
+        resultString += "Modulo: " + modulo;
+      
+      let equalto = num1 == num2;
+      let notequalto = num1 != num2;
+      let lessthan = num1 < num2;
+      let greaterthan = num1 > num2;
+      let lessthanEqual = num1 <= num2;
+      let greaterthanEqual = num1 >= num2;
+
+      let resultString2 = "(==): "+equalto+ ", ";
+          resultString2 += "(!=): "+notequalto+ ", ";
+          resultString2 += "(<): "+lessthan+ ", ";
+          resultString2 += "(>): "+greaterthan+ ", ";
+          resultString2 += "(<=): "+lessthanEqual+ ", ";
+          resultString2 += "(>=): "+greaterthanEqual+ ", ";
+      
+      let and = num1 && num2 == num1 && num2;
+      let or = (num1 == 5 || num2 == 5);
+      let not = !(num1 == num2);
+
+      let resultString3 = "(And &&): "+and+ ", ";
+          resultString3 += "(Or ||): "+or+ ", ";
+          resultString3 += "(Not !): "+not+ " ";
+      
+
+      //display
+      document.getElementById("arithmetic-result").textContent = resultString;
+      document.getElementById("comparison-result").textContent = resultString2;
+      document.getElementById("logical-result").textContent = resultString3;
+    }
+  </script>
+
+  <hr>
+
+  <div class="activity-2">
+    <p class="questions" >2.) Write a JavaScript program that checks if a "String" is palindrome.</p>
+
+    <div class="q2-main-cont">
+      <div class="txtbox-cont1">
+      <input class="txtbox" type="textbox" id="text" placeholder="Put a string here">
+      <div>
+        <button onclick="checkIfPalindrome()" class="check-button">Check if it's a Palindrome!</button>
+      </div>
+    </div>
+    <div class="result-cont1">
+      <span class="results-span" id="isItPalindrome"></span>
+    </div>
+  </div>
+    </div>
+  <script>
+    //display text function
+    // function displayText(){
+    //   let text = document.getElementById("text").value;
+    //   document.getElementById("isItPalindrome").textContent = text;
+    // }
+    function checkIfPalindrome(){
+      let text = document.getElementById("text").value;
+      text = text.toLowerCase().replace(/\s/g, '');
+
+      let reversedText = text.split('').reverse().join('');
+
+      if(text === reversedText){
+        document.getElementById("isItPalindrome").textContent = "YES, "+text+ " IS A PALINDROME!";
+      } else{
+        document.getElementById("isItPalindrome").textContent = "NO, "+text+ " IS NOT A PALINDROME! YOU SUCK!";
+      }
+    }
+  </script>
+  <hr>
+
+  <div class="activity-3">
+    <p class="questions" >3.) Write a JavaScript program that uses regular expressions to validate an email address</p>
+
+    <div class="q2-main-cont">
+      <div class="txtbox-cont1">
+        <input class="txtbox" type="textbox" id="emailString" placeholder="Enter your email">
+        <div>
+          <button onclick="checkValidEmail()" class="check-button">Check valid email</button>
+        </div>
+      </div>
+      <div class="result-cont1">
+        <span class="results-span" id="isItValidEmail"></span>
+      </div>
+    </div>
+    </div>
+    
+  <script>
+    function checkValidEmail(){
+      let email = document.getElementById("emailString").value;
+      let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+      if(emailRegex.test(email)){
+        document.getElementById("isItValidEmail").innerText = email+ " is a valid email."
+      }
+      else{
+        document.getElementById("isItValidEmail").innerText = email+ " is an invalid email."
+      }
+    }
+  </script>
+  <hr>
+
+    <div class="activity-4">
+      <p class="questions" >4.) Using function, write a JavaScript program that takes a string as input and returns the number of vowels in a string.</p>
+      <div class="q2-main-cont">
+        <div class="txtbox-cont1">
+          <input class="txtbox" type="textbox" id="textVowel" placeholder="Enter a string">
+          <div>
+            <button onclick="checkVowels()" class="check-button">Check the vowels!</button>
+          </div>
+        </div>
+        <div class="result-cont1">
+          <span class="results-span" id="checkIfVowels"></span>
+        </div>
+      </div>
+      </div>
+      
+   
+  <script>
+    function checkVowels(){
+      let text = document.getElementById("textVowel").value;
+      let vowels = "AEIOUaeiou";
+      
+      let vowelCount = 0;
+      for( let i = 0; i < text.length; i++){
+        if(vowels.includes(text[i])){
+          vowelCount++;
+        }
+      }
+      if(vowelCount > 1){
+        document.getElementById("checkIfVowels").textContent = `There are ${vowelCount} vowels in `+text;
+      }
+      else if(vowelCount == 1){
+        document.getElementById("checkIfVowels").textContent = `There is ${vowelCount} vowel in `+text;
+      }
+      else if(vowelCount < 1){
+        document.getElementById("checkIfVowels").textContent = `There are no vowels in `+text;
+      }
+    }
+  </script>
+  <hr>
+
+  <div class="activity-5">
+    <p class="questions" >5.) Using function, write a JavaScript program that takes a string  as input and returns to a new string with all the spaces removed.</p>
+  </div>
+
+  <div class="q2-main-cont">
+    <div class="txtbox-cont1">
+      <input class="txtbox" type="textbox" id="stringNoSpace" placeholder="Enter a string">
+      <div>
+        <button onclick="noSpaceString()" class="check-button">Remove white space!</button>
+      </div>
+    </div>
+    <div class="result-cont1">
+      <span class="results-span" id="checkNoSpace"></span>
+    </div>
+  </div>
+  
+  <script>
+    function noSpaceString(){
+      let string = document.getElementById("stringNoSpace").value;
+      let stringNoSpace = string.replace(/\s/g, '');
+
+      document.getElementById("checkNoSpace").textContent = stringNoSpace;
+    }
+  </script>
+  
+</body>
+</html>
